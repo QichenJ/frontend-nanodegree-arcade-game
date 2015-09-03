@@ -24,11 +24,17 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime;
-
+    var buttonHTML = document.createElement('Button');
+    buttonHTML.innerHTML = 'Reset';
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-
+    doc.body.appendChild(buttonHTML);
+    //Why doesn't this work?
+    buttonHTML.onClick = function() {
+        console.log('test');
+        reset();
+    };
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -80,7 +86,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        //checkCollisions();
     }
 
     /* This is called by the update function  and loops through all of the
@@ -159,9 +165,9 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
-    function reset() {
+    //function reset() {
         // noop
-    }
+    //}
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
