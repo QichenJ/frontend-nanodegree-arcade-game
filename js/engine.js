@@ -31,7 +31,7 @@ var Engine = (function(global) {
     doc.body.appendChild(canvas);
     doc.body.appendChild(buttonHTML);
     //Why doesn't this work?
-    buttonHTML.onClick = function() {
+    buttonHTML.onclick = function() {
         console.log('test');
         reset();
     };
